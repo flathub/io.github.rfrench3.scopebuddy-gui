@@ -24,11 +24,14 @@ modules:
     sources:
       - type: git
         url: https://github.com/rfrench3/scopebuddy-gui.git
-        tag: v1.1.2
+        tag: v2.0.0
     build-commands:
       - mkdir -p /app/share/scopebuddygui
-      - install -Dm755 src/scbgui.py /app/bin/scopebuddygui
+      - install -Dm755 src/main.py /app/bin/scopebuddygui
+      - install -m644 src/*.py /app/share/scopebuddygui/
       - install -m644 src/*.ui /app/share/scopebuddygui/
+      # The SVG needs to be accessible within the app so it can be properly displayed on the welcome page
+      - install -m644 src/img/io.github.rfrench3.scopebuddy-gui.svg /app/share/scopebuddygui/
       - install -m644 src/default_scb.conf /app/share/scopebuddygui/
       - install -Dm644 src/img/io.github.rfrench3.scopebuddy-gui.svg /app/share/icons/hicolor/scalable/apps/io.github.rfrench3.scopebuddy-gui.svg
       - install -Dm644 src/img/io.github.rfrench3.scopebuddy-gui.png /app/share/icons/hicolor/128x128/apps/io.github.rfrench3.scopebuddy-gui.png
